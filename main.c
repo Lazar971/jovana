@@ -62,6 +62,21 @@ void dodaj(PCVOR*glava, PRIJAVA prijava) {
    pom->sledeci = pcvor;
 }
 
+void kreiraj_listu(int info[][4], int n, PCVOR *glava) {
+    int i;
+    PRIJAVA* p;
+    for (i=0;i<n;i++) {
+        if (izracunajOcenu(info[i][1])> 5 && izracunajOcenu(info[i][2]) > 5) {
+         p = (PRIJAVA*) malloc(sizeof (PRIJAVA));
+         p->broj_indeksa = info[i][0];
+         p->poeni_prakticni=info[i][1];
+         p->poeni_usmeni=info[i][2];
+         p->rok = info[i][3];
+         dodaj(glava,*p);
+        }
+    }
+}
+
 void pronadji(int rok, PCVOR glava, PRIJAVA* prijava) {
     int poeni = 0;
     PCVOR pom = glava;
