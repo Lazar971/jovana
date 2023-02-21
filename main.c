@@ -33,7 +33,19 @@ int ocena(int broj_indeksa, int rok, int info[][4], int n) {
     return 5;
 }
 
-
+double prosek(char deo_ispita, int rok, int info[][4], int n) {
+    int kolona = deo_ispita =='p' ? 1 :2;
+    double res = 0;
+    int i,ukupno=0;
+    for(i=0;i<n;i++) {
+        if (info[i][3] != rok) {
+            continue;
+        }
+        ukupno++;
+        res = res + info[i][kolona];
+    }
+    return res / ukupno;
+}
 
 int proveri_indeks(int indeks) {
     if (indeks <0) {
