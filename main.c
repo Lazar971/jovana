@@ -62,6 +62,17 @@ void dodaj(PCVOR*glava, PRIJAVA prijava) {
    pom->sledeci = pcvor;
 }
 
+void pronadji(int rok, PCVOR glava, PRIJAVA* prijava) {
+    int poeni = 0;
+    PCVOR pom = glava;
+    while(pom != NULL) {
+        if (pom->prijava.rok == rok && pom->prijava.poeni_prakticni>poeni) {
+             *prijava =pom->prijava;
+             poeni = pom->prijava.poeni_prakticni;
+        }
+    }
+}
+
 int proveri_indeks(int indeks) {
     if (indeks <0) {
         return 0;
