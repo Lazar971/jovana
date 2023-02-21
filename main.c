@@ -17,6 +17,9 @@ struct cvor{
 
 int izracunajOcenu(int poeni) {
     int ocena = poeni/10;
+    if (poeni % 10 > 0) {
+        ocena++;
+    }
     if (ocena<5){
         return 5;
     }
