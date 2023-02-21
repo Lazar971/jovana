@@ -27,10 +27,15 @@ int izracunajOcenu(int poeni) {
 }
 
 int ocena(int broj_indeksa, int rok, int info[][4], int n) {
-    int i;
+    int i,pismeni, usmeni;
     for(i=0;i<n;i++) {
         if (info[i][0] == broj_indeksa && info[i][3]==rok) {
-            return (izracunajOcenu(info[i][1]) + izracunajOcenu(info[i][2])) /2;
+            pismeni = izracunajOcenu(info[i][1]);
+            usmeni = izracunajOcenu(info[i][2]);
+            if (pismeni ==5 || usmeni == 5) {
+                return 5;
+            }
+            return (pismeni + usmeni) /2;
         }
     }
     return 5;
@@ -103,10 +108,10 @@ void sacuvaj(int rok, char* naziv, PCVOR glava) {
         return;
     }
     while (pom != NULL) {
-    if (pom->prijava.rok == rok && izracunajOcenu(pom->prijava.poeni_prakticni) >5 && izracunajOcenu(pom->prijava.poeni_usmeni) >5) {
-        fprintf(file, "%d\n", pom->prijava.broj_indeksa);
-    }
-    pom= pom->sledeci;
+        if (pom->prijava.rok == rok && izracunajOcenu(pom->prijava.poeni_prakticni) >5 && izracunajOcenu(pom->prijava.poeni_usmeni) >5) {
+            fprintf(file, "%d\n", pom->prijava.broj_indeksa);
+        }
+        pom= pom->sledeci;
     }
     fclose(file);
 }
