@@ -47,6 +47,9 @@ double prosek(char deo_ispita, int rok, int info[][4], int n) {
         ukupno++;
         res = res + info[i][kolona];
     }
+    if (ukupno==0) {
+        return 0;
+    }
     return res / ukupno;
 }
 
