@@ -18,20 +18,22 @@ struct cvor{
 int izracunajOcenu(int poeni) {
     int ocena = poeni/10;
     if (ocena<5){
-        return 5
+        return 5;
     }
     return ocena;
 }
 
 int ocena(int broj_indeksa, int rok, int info[][4], int n) {
     int i;
-    for(i=0;i<n;i++0) {
+    for(i=0;i<n;i++) {
         if (info[i][0] == broj_indeksa && info[i][3]==rok) {
             return (izracunajOcenu(info[i][1]) + izracunajOcenu(info[i][2])) /2;
         }
     }
     return 5;
 }
+
+
 
 int proveri_indeks(int indeks) {
     if (indeks <0) {
