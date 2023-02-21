@@ -85,8 +85,12 @@ void pronadji(int rok, PCVOR glava, PRIJAVA* prijava) {
              *prijava =pom->prijava;
              poeni = pom->prijava.poeni_prakticni;
         }
+        pom = pom->sledeci;
     }
 }
+
+
+
 
 int proveri_indeks(int indeks) {
     if (indeks <0) {
