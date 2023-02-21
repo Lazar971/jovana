@@ -33,6 +33,21 @@ int ocena(int broj_indeksa, int rok, int info[][4], int n) {
     return 5;
 }
 
+int proveri_indeks(int indeks) {
+    if (indeks <0) {
+        return 0;
+    }
+   int godina = indeks / 10000;
+   int broj = indeks % 10000;
+   if (godina < 2000 || godina > 2022) {
+    return 0;
+   }
+   if (broj <1 || broj > 999) {
+    return 0;
+   }
+   return 1;
+
+}
 
 int main()
 {
