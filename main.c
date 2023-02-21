@@ -90,7 +90,20 @@ void pronadji(int rok, PCVOR glava, PRIJAVA* prijava) {
 }
 
 
-
+void sacuvaj(int rok, char* naziv, PCVOR glava) {
+    PCVOR pom = glava;
+    FILE* file = fopen(naziv,"w");
+    if (file == NULL) {
+        return;
+    }
+    while (pom != NULL) {
+    if (pom->prijava.rok == rok && izracunajOcenu(pom->prijava.poeni_prakticni) >5 && izracunajOcenu(pom->prijava.poeni_usmeni) >5) {
+        fprintf(file, "%d\n", pom->prijava.broj_indeksa);
+    }
+    pom= pom->sledeci;
+    }
+    fclose(file);
+}
 
 int proveri_indeks(int indeks) {
     if (indeks <0) {
