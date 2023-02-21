@@ -47,6 +47,21 @@ double prosek(char deo_ispita, int rok, int info[][4], int n) {
     return res / ukupno;
 }
 
+void dodaj(PCVOR*glava, PRIJAVA prijava) {
+    PCVOR pcvor =(PCVOR) malloc(sizeof (CVOR));
+    pcvor->prijava = prijava;
+    pcvor->sledeci=NULL;
+    if (*glava == NULL) {
+        *glava = pcvor;
+        return;
+    }
+    PCVOR pom = *glava;
+    while(pom->sledeci != NULL) {
+        pom = pom->sledeci;
+    }
+   pom->sledeci = pcvor;
+}
+
 int proveri_indeks(int indeks) {
     if (indeks <0) {
         return 0;
